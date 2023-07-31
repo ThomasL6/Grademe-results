@@ -1,37 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   inter.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thlefebv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/30 12:40:58 by thlefebv          #+#    #+#             */
+/*   Updated: 2023/07/30 12:40:59 by thlefebv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <unistd.h>
+
+int inter(char *str, char c, int len)
+{
+    int i = 0;
+    while(str[i] && (i < len || len == -1))
+    {
+        if(str[i++] == c)
+            return(1);
+    }
+        return(0);
+}
 
 int main(int arg, char **tab)
 {
-    int i = 0;
-    int k;
-    int l = 0;
-    char *s1;
-    char *s2;
+    int i;
     if(arg == 3)
     {
-        s1 = tab[1];
-        s2 = tab[2];
-        while(s1[i])
+        i = 0;
+        while(tab[1][i])
         {
-            k = 0;
-            while(s2[k])
-            {
-                if(s1[i] == s2[k])
-                {
-                    l = 0;
-                    while(s1[l] != s1[i])
-                        l++;
-                    if(l == i)
-                    {
-                        l = 0;
-                        while(s2[l] != s2[k])
-                            l++;
-                        if(l == k)
-                            write(1, &s1[i], 1);
-                    }
-                }
-                k++;
-            }
+            if(!inter(tab[1], tab[1][i], i) && inter(tab[2], tab[1][i], -1))
+                write(1, &tab[1][i], 1);
             i++;
         }
     }
