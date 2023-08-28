@@ -1,20 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   lcm.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: thlefebv <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 14:05:03 by thlefebv          #+#    #+#             */
-/*   Updated: 2023/07/31 14:05:05 by thlefebv         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdio.h>
+#include <stdlib.h>
 unsigned int    lcm(unsigned int a, unsigned int b)
 {
-    unsigned int n;
+    unsigned int n = 0;
     if((a == 0) || (b == 0))
         return(0);
-    if(a > b)
+    if(a > n)
         n = a;
     else
         n = b;
@@ -22,7 +13,13 @@ unsigned int    lcm(unsigned int a, unsigned int b)
     {
         if(n % a == 0 && n % b == 0)
             return(n);
-        ++n;
-    }   
+        n++;
+    }
 }
 
+// int main(int arg, char **tab)
+// {
+//     unsigned int a = atoi(tab[1]);
+//     unsigned int b = atoi(tab[2]);
+//     printf("%d\n", lcm(a, b));
+// }
