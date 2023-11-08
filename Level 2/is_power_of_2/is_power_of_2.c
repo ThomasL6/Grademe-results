@@ -1,4 +1,5 @@
-// #include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 int	    is_power_of_2(unsigned int n)
 {
     if(n == 0)
@@ -13,7 +14,8 @@ int	    is_power_of_2(unsigned int n)
     return(1);
 }
 
-// int main()
+// int main(int arg, char **tab)
 // {
-//     printf("%d\n", is_power_of_2(1024));
+//     if(arg == 2)
+//         printf("%d", is_power_of_2(atoi(tab[1])));
 // }
