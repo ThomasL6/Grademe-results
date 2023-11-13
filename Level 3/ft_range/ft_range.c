@@ -1,58 +1,51 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: thlefebv <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 11:14:45 by thlefebv          #+#    #+#             */
-/*   Updated: 2023/08/28 11:14:47 by thlefebv         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 #include <stdlib.h>
 #include <stdio.h>
-int     *ft_range(int start, int end)
+int *ft_range(int start, int end)
 {
-    int i;
-    int len = abs((start - end));
+    int len;
+    if(start > end)
+        len = ((start - end) + 1);
+    else
+        len = ((end - start) + 1);
+    int i = 0;
     int *tab = malloc(sizeof(int) * (len + 1));
     if(!tab)
         return(NULL);
-    i = 0;
-    if(start < end)
+    if(tab)
     {
-        while(start <=end)
-        {           
-            tab[i] = start;
-            start = start + 1;
-            i++;
-        }
-    }
-    else
-    {
-        while(start >= end)
+        if(start >= end)
         {
-            tab[i] = start;
-            start = start - 1;
-            i++;
+            while(i < len)
+            {
+                tab[i] = start;
+                start--;
+                i++;
+            }
+            }
+        else
+        {
+            while(i < len)
+            {
+                tab[i] = start;
+                start++;
+                i++;
+            }
         }
     }
     return(tab);
 }
 
-/*int main(int arg, char **tab)
-{
-	(void)arg;
-	int	len;
-	int	*array;
+// int main()
+// {
+//     int start = 0;
+//     int end = -3;
+//     int i = 0;
+//     int *tab = ft_range(start, end);
+//     int len = start - end + 1;
+//     while(i < len)
+//     {
+//         printf("%d, ", tab[i]);
+//         i++;
+//     }
+// }
 
-	len = abs(atoi(tab[2]) - atoi(tab[1]));
-	array = ft_range(atoi(tab[1]), atoi(tab[2]));
-	int i = 0; 
-    while(i <= len)
-    {
-		printf("%d\n", array[i]);
-        i++;
-    }
-    return (0);
-}*/

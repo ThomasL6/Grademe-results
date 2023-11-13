@@ -5,8 +5,8 @@ int	ft_atoi_base(const char *str, int str_base)
     char *base1 = "0123456789abcdef";
     char *base2 = "0123456789ABCDEF";
     int i = 0;
-    int k = 0;
     int j = 0;
+    int nb = 0;
     int mu = 1;
     if(str[i] == '-' || str[i] == '+')
     {
@@ -25,16 +25,15 @@ int	ft_atoi_base(const char *str, int str_base)
         }
         if(!base1[j] || !base2[j])
             break;
-        k = (k * str_base) + j;
+        nb = (nb * str_base) + j;
         i++;
     }
-    k = k * mu;
-    return(k);
+    return(nb * mu);
 }
 
-/*int main()
-{
-    const char *str = "5e";
-    int str_base = 16;
-    printf("%d", ft_atoi_base(str, str_base));
-}*/
+// int main()
+// {
+//     const char *str = "Ceci permet de decouvrir le fonctionnement de ton ft_atoi_base"; /* = 3308*/
+//     int str_base = 16;
+//     printf("%d\n", ft_atoi_base(str, str_base));
+// }
